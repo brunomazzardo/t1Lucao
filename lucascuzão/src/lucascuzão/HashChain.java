@@ -31,30 +31,31 @@ public class HashChain {
 	}
 
 	public Item get(Item item) {
-		item=get(item, 0);
+		item = get(item, 0);
 		return item;
 	}
 
-	public void add(Item item, int i) {
+	public boolean add(Item item, int i) {
 		int key = item.getCodigo() % 13 + i;
-		if (key > 13) {
-			i = 0;
+		System.out.println(key);
+		if (key > 12) {
+			i = key - 2 * key;
 			key = 0;
 		}
 
 		if (hash[key].getStatus() == 1 || hash[key].getStatus() == 3) {
 			hash[key].setItem(item);
 			hash[key].setStatus(2);
-
-		} else {
-			add(item, i + 1);
-
+			return true;
 		}
+		add(item, i + 1);
+		return false;
 
 	}
 
-	public void add(Item item) {
-		add(item, 0);
+	public boolean add(Item item) {
+		 boolean foi=add(item, 0);
+		 return foi;
 	}
 
 	public void imprimi(int i) {
