@@ -34,11 +34,10 @@ public class HashChain {
 	}
 
 	public boolean add(Item item, int i, int codigo) {
-		int key = codigo +i;
+		int key = codigo + i;
 
-		
 		if (key > 12) {
-			i=0;
+			i = 0;
 			key = 0;
 
 		}
@@ -49,7 +48,7 @@ public class HashChain {
 			hash[key].setStatus(2);
 			return true;
 		}
-		return add(item, i + 1, key);
+		return add(item, i +1, item.getCodigo()%13);
 
 	}
 
