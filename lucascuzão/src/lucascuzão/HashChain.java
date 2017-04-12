@@ -33,11 +33,11 @@ public class HashChain {
 		return item;
 	}
 
-	public boolean add(Item item, int i, int codigo) {
-		int key = codigo + i;
+	public boolean add(Item item, int codigo) {
+		int key = codigo ;
 
 		if (key > 12) {
-			i = 0;
+			
 			key = 0;
 
 		}
@@ -48,13 +48,14 @@ public class HashChain {
 			hash[key].setStatus(2);
 			return true;
 		}
-		return add(item, i +1, item.getCodigo()%13);
+		codigo++;
+		return add(item, codigo);
 
 	}
 
 	public boolean add(Item item) {
 		int key = item.getCodigo() % 13;
-		return add(item, 0, key);
+		return add(item, 0);
 	}
 
 	public void imprimi(int i) {

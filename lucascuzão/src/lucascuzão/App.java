@@ -8,12 +8,14 @@ public class App {
 		Item quat = new Item("quatorze", 14, 14, 14.0);
 		Item doze = new Item("12", 12, 12, 12.0);
 		Item vinte = new Item("25", 25, 25, 25.0);
+		Item trinta = new Item("38", 38, 25, 25.0);
 		HashChain hc = new HashChain();
 		System.out.println(hc.add(item));
 		System.out.println(hc.add(dois));
 		System.out.println(hc.add(quat));
 		System.out.println(hc.add(doze));
 		System.out.println(hc.add(vinte));
+		System.out.println(hc.add(trinta));
 		hc.imprimi(0);
 		// System.out.println(hc.get(dois).toString());
 	}
