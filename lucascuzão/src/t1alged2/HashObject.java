@@ -1,4 +1,4 @@
-package lucascuzão;
+package t1alged2;
 
 public class HashObject {
 

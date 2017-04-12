@@ -1,4 +1,4 @@
-package lucascuzão;
+package t1alged2;
 
 public class Item {
 	private String nome;
@@ -6,6 +6,14 @@ public class Item {
 	private int setor;
 	private double preco;
 
+	public Item(String nome, int codigo, int setor, Double preco) {
+
+		this.nome = nome;
+		this.codigo = codigo;
+		this.setor = setor;
+		this.preco = preco;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
@@ -38,16 +46,8 @@ public class Item {
 		this.preco = preco;
 	}
 
-	public Item(String nome, int codigo, int setor, Double preco) {
-
-		this.nome = nome;
-		this.codigo = codigo;
-		this.setor = setor;
-		this.preco = preco;
-	}
-
 	@Override
 	public String toString() {
-		return "Item [nome=" + nome + ", codigo=" + codigo + ", setor=" + setor + ", preco=" + preco + "]";
+		return "Item [Nome:" + nome + ", Código=" + codigo + ", Setor=" + setor + ", Preço=" + preco + "]";
 	}
 }

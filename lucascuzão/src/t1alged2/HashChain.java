@@ -1,9 +1,10 @@
-package lucascuzão;
+package t1alged2;
 
 import java.util.ArrayList;
 
 public class HashChain {
-	int count;
+	int count=0;
+	int countGet=0;
 	private HashObject[] hash = new HashObject[13];
 
 	public HashChain() {
@@ -25,6 +26,9 @@ public class HashChain {
 	}
 
 	public Item get(int codigo, int i) {
+		countGet++;
+		if(countGet>12)
+			return null;
 		int key = (i + codigo % 13) % 13;
 		System.out.println(key);
 		if (hash[key].getStatus() == 2) {
@@ -51,6 +55,7 @@ public class HashChain {
 	}
 
 	public Item get(int codigo) {
+		countGet=0;
 		return get(codigo, 0);
 
 	}
