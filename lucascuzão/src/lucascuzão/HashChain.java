@@ -33,14 +33,9 @@ public class HashChain {
 		return item;
 	}
 
-	public boolean add(Item item, int codigo) {
-		int key = codigo ;
+	public boolean add(Item item, int i) {
+		int key = (i + item.getCodigo() % 13) % 13;
 
-		if (key > 12) {
-			
-			key = 0;
-
-		}
 		System.out.println(key);
 
 		if (hash[key].getStatus() == 1 || hash[key].getStatus() == 3) {
@@ -48,8 +43,8 @@ public class HashChain {
 			hash[key].setStatus(2);
 			return true;
 		}
-		codigo++;
-		return add(item, codigo);
+
+		return add(item, ++i);
 
 	}
 

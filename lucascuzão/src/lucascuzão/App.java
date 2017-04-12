@@ -17,7 +17,7 @@ public class App {
 		System.out.println(hc.add(vinte));
 		System.out.println(hc.add(trinta));
 		hc.imprimi(0);
-		// System.out.println(hc.get(dois).toString());
+		System.out.println(hc.get(dois).toString());
 	}
 
 }
