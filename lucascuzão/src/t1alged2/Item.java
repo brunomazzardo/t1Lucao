@@ -6,7 +6,7 @@ public class Item {
 	private int setor;
 	private double preco;
 
-	public Item(String nome, int codigo, int setor, Double preco) {
+	public Item(String nome, int codigo, int setor, double preco) {
 
 		this.nome = nome;
 		this.codigo = codigo;
@@ -38,11 +38,11 @@ public class Item {
 		this.setor = setor;
 	}
 
-	public Double getPreco() {
+	public double getPreco() {
 		return preco;
 	}
 
-	public void setPreco(Double preco) {
+	public void setPreco(double preco) {
 		this.preco = preco;
 	}
 

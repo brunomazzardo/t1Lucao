@@ -47,7 +47,7 @@ public class App {
 				menu();
 				break;
 			case 4:
-				//removeItem();
+				removeItem();
 				menu();
 				break;
 			case 5:
@@ -69,7 +69,6 @@ public class App {
 		public static void adicionaItem() {
 			try {
 				System.out.println("Digite nome, código, setor e valor do item:");
-
 				String nome = sc.next();
 				int setor = sc.nextInt();
 				int codigo = sc.nextInt();
@@ -89,7 +88,7 @@ public class App {
 			try {
 				int nome = sc.nextInt();
 				System.out.println(hc.get(nome).toString());
-			} catch (InputMismatchException S) {
+			} catch (InputMismatchException M) {
 				System.out.println("Apenas digite números");
 
 			} catch (Exception E) {
@@ -107,19 +106,19 @@ public class App {
 			}
 		}
 		
-		/*public static void removeItem() {
-			System.out.println("Digite o código do produto:");
+		public static void removeItem() {
+			System.out.println("Digite o código do produto a ser removido:");
 			try {
 				int codigo = sc.nextInt();
 
-				hc.remove();
-			} catch (InputMismatchException S) {
+				hc.remove(codigo);
+			} catch (InputMismatchException M) {
 				System.out.println("Apenas digite números");
 
 			} catch (Exception E) {
 				System.out.println("Produto não encontrado");
 			}
-		}*/
+		}
 		
 		
 

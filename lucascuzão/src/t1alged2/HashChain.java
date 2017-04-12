@@ -15,13 +15,12 @@ public class HashChain {
 
 	}
 
-	public void remove(Item i) {
+	public void remove(int codigo) {
 
-		if (get(i.getCodigo()) != null) {
+		if (codigo != -1) {
 			count--;
-			hash[i.getCodigo() % 13].setItem(null);
-			hash[i.getCodigo() % 13].setStatus(3);
-
+			hash[codigo % 13].setItem(null);
+			hash[codigo % 13].setStatus(3);
 		}
 	}
 
@@ -87,7 +86,7 @@ public class HashChain {
 
 		for (int i = 0; i < 13; i++) {
 			if (hash[i].getStatus() == 2) {
-				if (hash[i].getItem().getNome().equals(nome))
+				if (hash[i].getItem().getNome().equalsIgnoreCase(nome))
 					return hash[i].getItem();
 			}
 		}
