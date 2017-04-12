@@ -11,12 +11,17 @@ public class HashChain {
 
 	}
 
-	public Item get(Item item, int i) {
-		int key = item.getCodigo() % 13 + i;
-		if (key > 13) {
-			i = 0;
-			key = 0;
+	public void remove(Item i) {
+
+		if (get(i) != null) {
+			hash[i.getCodigo()].setItem(null);
+			hash[i.getCodigo()].setStatus(3);
+
 		}
+	}
+
+	public Item get(Item item, int i) {
+		int key = (i + item.getCodigo() % 13) % 13;
 		if (hash[key].getStatus() == 2) {
 			if (hash[key].getItem().getCodigo() == item.getCodigo())
 				return hash[key].getItem();
