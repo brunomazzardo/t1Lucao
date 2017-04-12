@@ -20,10 +20,8 @@ public class HashChain {
 		if (hash[key].getStatus() == 2) {
 			if (hash[key].getItem().getCodigo() == item.getCodigo())
 				return hash[key].getItem();
-			add(item, i + 1);
 
 		} else if (hash[key].getStatus() == 3) {
-			add(item, i + 1);
 
 		}
 		return null;
@@ -35,27 +33,29 @@ public class HashChain {
 		return item;
 	}
 
-	public boolean add(Item item, int i) {
-		int key = item.getCodigo() % 13 + i;
-		System.out.println(key);
+	public boolean add(Item item, int i, int codigo) {
+		int key = codigo +i;
+
+		
 		if (key > 12) {
-			i = key - 2 * key;
+			i=0;
 			key = 0;
+
 		}
+		System.out.println(key);
 
 		if (hash[key].getStatus() == 1 || hash[key].getStatus() == 3) {
 			hash[key].setItem(item);
 			hash[key].setStatus(2);
 			return true;
 		}
-		add(item, i + 1);
-		return false;
+		return add(item, i + 1, key);
 
 	}
 
 	public boolean add(Item item) {
-		 boolean foi=add(item, 0);
-		 return foi;
+		int key = item.getCodigo() % 13;
+		return add(item, 0, key);
 	}
 
 	public void imprimi(int i) {

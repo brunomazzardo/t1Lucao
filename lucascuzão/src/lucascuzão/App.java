@@ -14,7 +14,7 @@ public class App {
 		System.out.println(hc.add(quat));
 		System.out.println(hc.add(doze));
 		System.out.println(hc.add(vinte));
-		hc.imprimi(1);
+		hc.imprimi(0);
 		// System.out.println(hc.get(dois).toString());
 	}
 
