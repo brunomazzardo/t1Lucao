@@ -38,7 +38,7 @@ public class HashChain {
 	}
 
 	public void imprimi(int i) {
-		if (hash[i].getItem() != null)
+		if (hash[i].getStatus()==2)
 			System.out.println(hash[i].getItem().toString());
 		if(i<12){
 			i++;
