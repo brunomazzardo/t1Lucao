@@ -1,6 +1,7 @@
 package lucascuzão;
 
 public class HashChain {
+	int count;
 	private HashObject[] hash = new HashObject[13];
 
 	public HashChain() {
@@ -14,6 +15,7 @@ public class HashChain {
 	public void remove(Item i) {
 
 		if (get(i.getCodigo()) != null) {
+			count --;
 			hash[i.getCodigo()].setItem(null);
 			hash[i.getCodigo()].setStatus(3);
 
@@ -52,11 +54,14 @@ public class HashChain {
 	}
 
 	public boolean add(Item item, int i) {
+		if(count>12)
+			return false;
 		int key = (i + item.getCodigo() % 13) % 13;
 
 		System.out.println(key);
 
 		if (hash[key].getStatus() == 1 || hash[key].getStatus() == 3) {
+			count ++;
 			hash[key].setItem(item);
 			hash[key].setStatus(2);
 			return true;
