@@ -11,6 +11,30 @@ public class HashChain {
 
 	}
 
+	public Item get(Item item, int i) {
+		int key = item.getCodigo() % 13 + i;
+		if (key > 13) {
+			i = 0;
+			key = 0;
+		}
+		if (hash[key].getStatus() == 2) {
+			if (hash[key].getItem().getCodigo() == item.getCodigo())
+				return hash[key].getItem();
+			add(item, i + 1);
+
+		} else if (hash[key].getStatus() == 3) {
+			add(item, i + 1);
+
+		}
+		return null;
+
+	}
+
+	public Item get(Item item) {
+		item=get(item, 0);
+		return item;
+	}
+
 	public void add(Item item, int i) {
 		int key = item.getCodigo() % 13 + i;
 		if (key > 13) {
@@ -33,14 +57,10 @@ public class HashChain {
 		add(item, 0);
 	}
 
-	public HashObject[] get() {
-		return hash;
-	}
-
 	public void imprimi(int i) {
-		if (hash[i].getStatus()==2)
+		if (hash[i].getStatus() == 2)
 			System.out.println(hash[i].getItem().toString());
-		if(i<12){
+		if (i < 12) {
 			i++;
 			imprimi(i);
 		}

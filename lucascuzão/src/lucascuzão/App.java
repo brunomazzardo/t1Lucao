@@ -10,8 +10,8 @@ public class App {
 		hc.add(item);
 		hc.add(dois);
 		hc.add(quat);
-	hc.imprimi(1);
-
+	//hc.imprimi(1);
+System.out.println(hc.get(dois).toString());
 	}
 
 }
