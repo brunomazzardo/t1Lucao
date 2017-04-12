@@ -13,30 +13,42 @@ public class HashChain {
 
 	public void remove(Item i) {
 
-		if (get(i) != null) {
+		if (get(i.getCodigo()) != null) {
 			hash[i.getCodigo()].setItem(null);
 			hash[i.getCodigo()].setStatus(3);
 
 		}
 	}
 
-	public Item get(Item item, int i) {
-		int key = (i + item.getCodigo() % 13) % 13;
+	public Item get(int codigo, int i) {
+		int key = (i + codigo % 13) % 13;
+		System.out.println(key);
 		if (hash[key].getStatus() == 2) {
-			if (hash[key].getItem().getCodigo() == item.getCodigo())
+
+			if (hash[key].getItem().getCodigo() == codigo) {
+
 				return hash[key].getItem();
-			get(item,++i);
+			}
 
 		} else if (hash[key].getStatus() == 3) {
+			key++;
+
+			if (hash[key].getItem().getCodigo() == codigo) {
+				System.out.println("Passou");
+				return hash[key].getItem();
+			}
 
 		}
-		return null;
+
+		return get(codigo, ++i);
+
+		// return get(item);
 
 	}
 
-	public Item get(Item item) {
-		item = get(item, 0);
-		return item;
+	public Item get(int codigo) {
+		return get(codigo, 0);
+
 	}
 
 	public boolean add(Item item, int i) {
