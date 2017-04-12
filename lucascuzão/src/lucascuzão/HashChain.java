@@ -25,6 +25,7 @@ public class HashChain {
 		if (hash[key].getStatus() == 2) {
 			if (hash[key].getItem().getCodigo() == item.getCodigo())
 				return hash[key].getItem();
+			get(item,++i);
 
 		} else if (hash[key].getStatus() == 3) {
 
